@@ -1,7 +1,10 @@
 .NavBar-container{
     width: 100%;
-    background-color: var(--primary);
+    /*background-color: var(--primary);*/
+    background: linear-gradient(to right, hsl(7, 100%, 60%), hsl(21, 100%, 60%));
+
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding: 15px;
     color:var(--black-900);
@@ -58,7 +61,7 @@ font-size: 2rem;
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--primary-dark2);
+    background: #fafafa;
     height: 4px;
     -webkit-transform: translateY(4px);
     transform: translateY(4px);
