@@ -1,11 +1,12 @@
 import React from 'react'
+import ItemCount from '../ItemCount';
 import './ItemListContainer.css'
 
 const ItemListContainer = () => {
     return ( 
-        <>
-            Catalogo de Productos
-        </>
+        <div className='ItemListContainer'>
+            <ItemCount stock={5} initial={1}/>
+        </div>
      );
 }
  

@@ -1,8 +1,8 @@
 import React from 'react';
 import './NavBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMotorcycle, faCartShopping } from '@fortawesome/free-solid-svg-icons'
-import CartWidget from './CartWidget';
+import { faMotorcycle} from '@fortawesome/free-solid-svg-icons'
+import CartWidget from '../CartWidget';
 
 
 
@@ -21,7 +21,7 @@ export default function NavBar() {
             <li className='NavBar-li'>CONTACTO</li>
         </ul>
 
-        <div class="NavBar-carrito">
+        <div className="NavBar-carrito">
             <CartWidget/>
         </div>
     </nav>
