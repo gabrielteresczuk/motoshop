@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/motoshop/static/css/main.895b785a.css",
-    "main.js": "/motoshop/static/js/main.d0cc824e.js",
+    "main.css": "/motoshop/static/css/main.db6d6066.css",
+    "main.js": "/motoshop/static/js/main.2666cdf8.js",
     "static/js/787.f4ccf5ef.chunk.js": "/motoshop/static/js/787.f4ccf5ef.chunk.js",
     "index.html": "/motoshop/index.html",
-    "main.895b785a.css.map": "/motoshop/static/css/main.895b785a.css.map",
-    "main.d0cc824e.js.map": "/motoshop/static/js/main.d0cc824e.js.map",
+    "main.db6d6066.css.map": "/motoshop/static/css/main.db6d6066.css.map",
+    "main.2666cdf8.js.map": "/motoshop/static/js/main.2666cdf8.js.map",
     "787.f4ccf5ef.chunk.js.map": "/motoshop/static/js/787.f4ccf5ef.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.895b785a.css",
-    "static/js/main.d0cc824e.js"
+    "static/css/main.db6d6066.css",
+    "static/js/main.2666cdf8.js"
   ]
 }
