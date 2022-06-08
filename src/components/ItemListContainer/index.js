@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-//import ItemCount from '../ItemCount';
 import ItemList from '../ItemList';
+import Loader from '../Loader';
 import './ItemListContainer.css'
 
 let dataDB = [
@@ -54,10 +54,9 @@ const ItemListContainer = () => {
 
     return ( 
         <div className='ItemListContainer'>
-            {/*<ItemCount stock={5} initial={1}/>*/}
             Lista de Productos
             {loader ? 
-            (<div className='Load-Container'><div className="lds-dual-ring"></div></div>)
+            <Loader/>
             :
             <ItemList items={data}/>
             }
