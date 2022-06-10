@@ -2,19 +2,22 @@
     width: 100%;
     /*background-color: var(--primary);*/
     background: linear-gradient(to right, hsl(7, 100%, 60%), hsl(21, 100%, 60%));
-
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 15px;
     color:var(--black-900);
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+    z-index: 2;
 }
 
-.NavBar-logo{
+.NavBar-logo a{
 display: flex;
 flex-direction: row;
 font-weight: 400;
 font-size: 2rem;
+color:var(--black-900);
+text-decoration: none;
 }
 
 .NavBar-moto{
@@ -75,4 +78,14 @@ font-size: 2rem;
   .NavBar-li:hover:before, .NavBar-li:focus:before, .NavBar-li:active:before {
     -webkit-transform: translateY(0);
     transform: translateY(0);
+  }
+
+  .NavBar-li a{
+    color:var(--black-900);
+      text-decoration: none;
+  }
+
+  a.active{
+      color:#FAFAFA;
+      text-shadow: 1px 1px 5px rgb(0 0 0 / 80%);
   }

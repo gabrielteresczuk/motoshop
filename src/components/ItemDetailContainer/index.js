@@ -1,36 +1,27 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 import ItemDetail from '../ItemDetail'
 import Loader from '../Loader';
 import './ItemDetailContainer.css'
+import {dataDB} from '../../assets/dataBase'
+import NoMatch from '../NoMatch';
 
-let itemData = 
-  {
-    id:1,
-    modelo:"NAKED BIKE",
-    producto:"KTM 890 DUKE",
-    subproducto:"THE SCALPEL",
-    ventaja:"La KTM 890 DUKE redefine la palabra 'afilado' subiendo un peldaño extra. Impulsada por un bicilíndrico paralelo de 889 cc.",
-    descripcion:"La KTM 890 DUKE R incorpora todo lo que nos gusta de las DUKE y lo lleva al límite absoluto. Esta moto naked sin compromisos se encuentra como en casa tanto en circuito como en carreteras de montaña. Creando un auténtico golpe de efecto en la categoría de media cilindrada, THE SUPER SCALPEL cumple exactamente con lo que anuncia.",
-    precio:"2000.59",
-    imagenes :[
-      'ktm-890-duke-01.jpg',
-      'ktm-890-duke-02.png',
-      'ktm-890-duke-03.jpg',
-      'ktm-890-duke-04.jpg'
-    ]
-  }
-;
 
 function ItemDetailContainer() {
 
+  const {ItemId} = useParams();
   const [loader, setLoader] = useState(true);
   const [data, setData] = useState({});
 
   useEffect(() => {
+
     const getItem = new Promise(function(myResolve,myReject){
       setTimeout(() => {
-        myResolve(itemData);
-      }, 2000);
+        myResolve(
+          //itemData[2]
+          dataDB.find((el) => el.id === parseInt(ItemId))
+          );
+      }, 500);
     });
   
     getItem.then(
@@ -40,15 +31,17 @@ function ItemDetailContainer() {
       }
     );
 
-  }, [])
+  }, [ItemId]);
   
 
 
   return (
     <div className='ItemDetailContainer'>
     
-        {loader ? <Loader/> :
-        <ItemDetail itemData={data}/>
+        {
+        loader ? <Loader/> :
+        data ?
+        <ItemDetail itemData={data}/> : <NoMatch/>
         }
         
     </div>
