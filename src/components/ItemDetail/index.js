@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import './ItemDetail.css'
 import ItemCount from '../ItemCount'
+import { Link } from 'react-router-dom';
 
 function ItemDetail({itemData}) {
 
 
     const [slide, setSlide] = useState(0);
+    const [count, setCount] = useState(0)
 
     const handlePrevSlide = () =>{
         slide === 0 ?
@@ -21,6 +23,10 @@ function ItemDetail({itemData}) {
 
     const handleIndexSlide = (index)=>{
         setSlide(index);
+    }
+
+    const onAdd = (valor) =>{
+        setCount(valor);
     }
 
 
@@ -72,7 +78,13 @@ function ItemDetail({itemData}) {
 
             </div>    
             <div className="ItemDetail_precio">${itemData.precio}</div>
-            <div className="ItemDetail_cantidad"><ItemCount stock={5} initial={1}/></div>
+            <div className="ItemDetail_cantidad">
+            { count ? 
+            <Link to={'/Cart'}>Ir Al Carrito</Link>: 
+            <ItemCount stock={5} initial={1} onAdd={onAdd}/>
+            }
+            </div>
+            
         </div>
 
 

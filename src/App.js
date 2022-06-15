@@ -1,6 +1,7 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Cart from './components/Cart';
 import Contacto from './components/Contacto';
 import Footer from './components/Footer';
 import Home from './components/Home';
@@ -22,6 +23,7 @@ function App() {
             <Route exact path='/Item/:ItemId' element={<ItemDetailContainer/>}/>
             <Route exact path='/Lista' element={<ItemListContainer/>}/>
             <Route exact path='/Contacto' element={<Contacto/>}/>
+            <Route exact path='/Cart' element={<Cart/>}/>
             <Route path='*' element={<NoMatch/>}/>
           </Routes>
           <Footer/>
