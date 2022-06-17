@@ -3,10 +3,10 @@ import './CartWidget.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons'
 
-const CartWidget = () => {
+const CartWidget = ({items}) => {
     return ( 
         <>
-            <button className='CartWidget-button'><FontAwesomeIcon icon={faCartShopping} />  1</button>
+            <button className='CartWidget-button'><FontAwesomeIcon icon={faCartShopping} /> {items.length}</button>
         </>
      );
 }

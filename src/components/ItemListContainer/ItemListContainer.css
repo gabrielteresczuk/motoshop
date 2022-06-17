@@ -63,18 +63,45 @@
 }
 
 
-.ItemListContainer_filter ul li span{
+.ItemListContainer_filterAdd li span{
     padding-left: 10px;
     transition: all 0.5s ease;
     position: relative;
     right: 10px;
-    
 }
 
-.ItemListContainer_filter ul li:hover > span{
+.ItemListContainer_filterAdd li:hover > span{
     position: relative;
     right: 0px;
 }
+
+.ItemListContainer_filterRemove li span{
+    padding-left: 10px;
+    transition: all 0.5s ease;
+    position: relative;
+    right: 10px;
+}
+
+.ItemListContainer_filterRemove li:hover > span{
+    position: relative;
+    transform: scale(1.2);
+    opacity: 1.5;
+}
+
+.ItemListContainer_filterClear{
+    background-color: #EEEEEE;
+    cursor: pointer;
+    text-align: center;
+    border: transparent;
+    padding: 5px;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 14px;
+}
+.ItemListContainer_filterClear:hover{
+    background-color: #cccccc;
+}
+
 
 .ItemListContainer_orderContainer{
     display: flex;
@@ -114,3 +141,29 @@
     background-color: #FFFFFF;
     border: 1px solid #EEEEEE;
 }
+
+
+  .ItemListContainer_filterMinMax{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 5px;
+  }
+
+  .ItemListContainer_filterMinMax input{
+    width: 45%;
+    padding: 5px;
+    border-radius: 5px;
+    
+    background-color: #FFFFFF;
+    border:1px solid #cccccc;
+    outline: none;
+  }
+
+  .ItemListContainer_filterMinMax input::-webkit-outer-spin-button,
+  .ItemListContainer_filterMinMax input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+

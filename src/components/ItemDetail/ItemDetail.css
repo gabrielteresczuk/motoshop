@@ -179,13 +179,13 @@
   
   padding: 5px 30px 5px 30px;
   height: 2rem;
-  color: #fff;
-  background-color: rgb(255, 75, 51);
+  color: rgb(255, 75, 51);
+  background-color: #ffffff;
   font-size: 17px;
   transition: all 0.3s;
   display: inline-block;
   vertical-align: middle;
-  border: 1px solid transparent;
+  border: 1px solid rgb(255, 75, 51);
   border-radius: 5px;
   box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
   cursor: pointer;
@@ -193,5 +193,27 @@
 
 .ItemDetail_addToCard:hover {
   cursor: pointer;
+  color:#ffffff;
   background-color: rgba(255, 75, 51,0.9);
+}
+
+.ItemDetail_toCard {
+  
+  padding: 5px 30px 5px 30px;
+  height: 2rem;
+  color: rgb(255, 75, 51);
+  background-color: #fff;
+  font-size: 17px;
+  transition: all 0.3s;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+.ItemDetail_toCard:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }

@@ -9,7 +9,12 @@ const ItemListContainer = () => {
 
     const [loader, setLoader] = useState(true);
     const [data, setData] = useState('');
+    const [originalData, setOriginalData] = useState('');
     const [order, setOrder] = useState('relevante');
+    const [filter, setFilter] = useState({min:'',max:'',modelo:[]});
+    const [minMax, setMinMax] = useState({min:'',max:''});
+
+
 
     useEffect(() => {
 
@@ -22,18 +27,17 @@ const ItemListContainer = () => {
             });
 
             setData(await myPromise);
+            setOriginalData(await myPromise);
             setLoader(false);
         }
 
         fetchData();
 
-
-
     }, []);
 
 
     const handleOrder = (event) => {
-        var numbers = [...data];
+        let numbers = [...data];
 
         if(event.target.value === 'mayor'){
             numbers.sort(function(a, b) {
@@ -58,20 +62,100 @@ const ItemListContainer = () => {
         setOrder(event.target.value);
     }
 
+    const addFilter = (filtro) => {
+        setFilter({
+                ...filter,
+                modelo:[...filter.modelo,filtro]
+                })
+    }
+
+    const removeFilter = (filtro) => {
+        let nuevoFiltro = filter.modelo.filter(el => el !== filtro);
+        setFilter({...filter,modelo:nuevoFiltro});
+    }
+
+    const clearFilter = () =>{
+        setFilter({min:'',max:'',modelo:[]});
+    }
+
+    useEffect(() => {
+     
+      let dataAFiltrar = [...originalData];
+      let dataFiltrada = [];
+
+      if(filter.modelo.length > 0){
+        for (const iterator of filter.modelo) {
+            dataFiltrada = [...dataFiltrada,...dataAFiltrar.filter(el => el.modelo === iterator)];
+        }
+      }else{
+        dataFiltrada = dataAFiltrar;
+      }
+
+      if(filter.min || filter.max){
+        console.log('entro');
+        dataFiltrada = dataFiltrada.filter(el => el.precio >= parseInt(filter.min) && el.precio <= parseInt(filter.max) );
+      }
+
+
+        setData(dataFiltrada);
+
+    
+    }, [filter,originalData])
+
+
+    const handleMinMax = (e) =>{
+        setMinMax({...minMax, [e.target.name]:e.target.value});
+        //let nuevaDataMinMax = data.filter(el => el.precio >= parseInt(nuevoMin) && el.precio <= parseInt(nuemoMax) );
+    }
+
+    const sendMinMax = () =>{
+        let newmin = minMax.min || 0;
+        let newmax = minMax.max || 50000;
+        setFilter({...filter,
+                min: newmin,
+                max: newmax});
+        setMinMax({min:'',max:''});
+    }
+
+    const removeMinMax = () =>{
+        setFilter({...filter,
+            min: 0,
+            max: 0});
+    }
+    
+
     return ( 
         <div className='ItemListContainer'>
             
             <div className='ItemListContainer_contenido'>
                 <div className='ItemListContainer_filter'>
+                    {filter.modelo.length || filter.max ? <><span>FILTROS</span><hr/></> :''}
+                    
+                    <ul className='ItemListContainer_filterRemove'>
+                        { filter.modelo.includes('ENDURO') && <li onClick={() => removeFilter('ENDURO')}>Enduro <span>x</span></li>}
+                        { filter.modelo.includes('NAKED') &&<li onClick={() => removeFilter('NAKED')}>Naked <span>x</span></li>}
+                        { filter.modelo.includes('MX') &&<li onClick={() => removeFilter('MX')}>MX <span>x</span></li>}
+                        { filter.modelo.includes('SUPERSPORT') &&<li onClick={() => removeFilter('SUPERSPORT')}>SuperSport  <span>x</span></li>}
+                        { filter.modelo.includes('ADVENTURE') &&<li onClick={() => removeFilter('ADVENTURE')}>Adventure <span>x</span></li>}
+                        { filter.min || filter.max ? <li onClick={removeMinMax}>${filter.min} - ${filter.max}<span>x</span></li> : ''}
+                        { filter.modelo.length ? <button onClick={() => clearFilter()} className='ItemListContainer_filterClear'>Limpar</button> :'' } 
+                    </ul>
                     <span>CATEGORIAS</span>
                     <hr/>
-                    <ul>
-                        <li>Enduro <span>&#62;</span></li>
-                        <li>Naked <span>&#62;</span></li>
-                        <li>MX <span>&#62;</span></li>
-                        <li>SuperSport  <span>&#62;</span></li>
-                        <li>Travel <span>&#62;</span></li>
+                    <ul className='ItemListContainer_filterAdd'>
+                        { filter.modelo.includes('ENDURO') || <li onClick={() => addFilter('ENDURO')}>Enduro <span>&#62;</span></li>}
+                        { filter.modelo.includes('NAKED') ||<li onClick={() => addFilter('NAKED')}>Naked <span>&#62;</span></li>}
+                        { filter.modelo.includes('MX') ||<li onClick={() => addFilter('MX')}>MX <span>&#62;</span></li>}
+                        { filter.modelo.includes('SUPERSPORT') ||<li onClick={() => addFilter('SUPERSPORT')}>SuperSport  <span>&#62;</span></li>}
+                        { filter.modelo.includes('ADVENTURE') ||<li onClick={() => addFilter('ADVENTURE')}>Adventure <span>&#62;</span></li>}
                     </ul>
+                    <span>PRECIO</span>
+                    <hr/>
+                    <div className='ItemListContainer_filterMinMax'>
+                    <input type="number" placeholder='minimo' name='min' value={minMax.min} onChange={handleMinMax}></input>-
+                    <input type="number" placeholder='maximo' name='max' value={minMax.max} onChange={handleMinMax}></input>
+                    <button onClick={sendMinMax} className='ItemListContainer_filterClear'>Filtrar</button>
+                    </div>
                 </div>
 
                 <div className='ItemListContainer_orderContainer'>

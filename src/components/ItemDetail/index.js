@@ -1,22 +1,26 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './ItemDetail.css'
 import ItemCount from '../ItemCount'
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../assets/CartContext';
+
 
 function ItemDetail({itemData}) {
 
 
     const [slide, setSlide] = useState(0);
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0);
+    const {addCustomItems} = useContext(CartContext);
+
 
     const handlePrevSlide = () =>{
         slide === 0 ?
-        setSlide(3) :
+        setSlide(itemData.imagenes.length-1) :
         setSlide(slide-1);
     }
 
     const handleNextSlide = () =>{
-      slide === 3 ?
+      slide === itemData.imagenes.length-1 ?
         setSlide(0):
         setSlide(slide+1);
     }
@@ -27,6 +31,7 @@ function ItemDetail({itemData}) {
 
     const onAdd = (valor) =>{
         setCount(valor);
+        addCustomItems({item:itemData.id,quantity:valor});
     }
 
 
@@ -80,8 +85,13 @@ function ItemDetail({itemData}) {
             <div className="ItemDetail_precio">${itemData.precio}</div>
             <div className="ItemDetail_cantidad">
             { count ? 
-            <Link to={'/Cart'}>Ir Al Carrito</Link>: 
-            <ItemCount stock={5} initial={1} onAdd={onAdd}/>
+                (<>
+                <Link to={'/Lista'}><button className='ItemDetail_addToCard'>Seguir Comprando</button></Link>
+                <Link to={'/Cart'}><button className='ItemDetail_toCard'> Ir al Carrito </button></Link>
+                </>
+                )
+                : 
+                <ItemCount stock={5} initial={1} onAdd={onAdd}/>
             }
             </div>
             

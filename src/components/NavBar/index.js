@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './NavBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMotorcycle} from '@fortawesome/free-solid-svg-icons'
 import CartWidget from '../CartWidget';
 import { Link, NavLink } from 'react-router-dom';
+import { CartContext } from '../../assets/CartContext';
 
 
 
 export default function NavBar() {
+
+  //uso el Context, para traer los items del carrito  
+  const {customItems} = useContext(CartContext);
+
+
   return (
 
     <nav className='NavBar-container'>
@@ -17,7 +23,7 @@ export default function NavBar() {
           <Link to={'/'}>
             <FontAwesomeIcon icon={faMotorcycle} className="NavBar-moto" />
             <span>MOTO</span> 
-            SHOP
+            SHOP 
           </Link>
         </div>
        
@@ -29,7 +35,7 @@ export default function NavBar() {
         </ul>
 
         <div className="NavBar-carrito">
-            <CartWidget/>
+            <CartWidget items={customItems}/>
         </div>
     </nav>
 
