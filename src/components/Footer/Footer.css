@@ -31,13 +31,17 @@
     padding-top: 5px;
 }
 
-.Footer-link{
+.Footer-link a{
     cursor: pointer;
+    color: #000000;
+    text-decoration: none;
 }
-.Footer-link:hover{
+.Footer-link a:hover{
     cursor: pointer;
     text-decoration: underline;
 }
+
+
 
 
 .Footer-email{

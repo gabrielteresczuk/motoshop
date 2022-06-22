@@ -3,6 +3,7 @@ import './Footer.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMotorcycle } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookF, faTwitter, faLinkedin, faGithub } from "@fortawesome/free-brands-svg-icons"
+import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
@@ -22,9 +23,9 @@ function Footer() {
         <div className='Footer-Col'>
             <span>SECCIONES</span>
             <ul>
-                <li className='Footer-link'>HOME</li>
-                <li className='Footer-link'>PRODUCTOS</li>
-                <li className='Footer-link'>ACERCA</li>
+            <li className='Footer-link'><Link to={'/'}>HOME</Link></li>
+                <li className='Footer-link'><Link to={'/Lista'}>PRODUCTOS</Link></li>
+                <li className='Footer-link'><Link to={'/Contacto'}>CONTACTO</Link></li>
             </ul>
         </div>
         <div className='Footer-Col'>

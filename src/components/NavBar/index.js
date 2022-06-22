@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMotorcycle} from '@fortawesome/free-solid-svg-icons'
 import CartWidget from '../CartWidget';
 import { Link, NavLink } from 'react-router-dom';
-import { CartContext } from '../../assets/CartContext';
+import { CartContext } from '../../context/CartContext';
 
 
 
@@ -35,7 +35,9 @@ export default function NavBar() {
         </ul>
 
         <div className="NavBar-carrito">
-            <CartWidget items={customItems}/>
+            
+              <CartWidget items={customItems}/>
+            
         </div>
     </nav>
 

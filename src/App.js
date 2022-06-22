@@ -1,7 +1,7 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import CustomCartContext from './assets/CartContext';
+import CustomCartContext from './context/CartContext';
 
 import Cart from './components/Cart';
 import Contacto from './components/Contacto';

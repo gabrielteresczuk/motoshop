@@ -23,19 +23,38 @@ function CustomCartContext({defaultValue = [], children}) {
         }
     }
 
-    //COMENTO PARA QUE AL COMPILAR NO DE WARNING, para usar en el proximo desafio
-
-    /*const removeCustomItem = (id) =>{
+    // elimina un elemnto del array
+    const removeCustomItem = (id) =>{
         let newCustomItems = customItems.filter(el => el.item !== id );
         setCustomItems(newCustomItems);
     }
 
+    // limpa el array completamente
     const clearCustomItem = () => {
         setCustomItems([]);
-    }*/
+    }
+
+    //agrega una cantidad mas al item
+    const addCustomQuantity = (item, cantidad) => {
+        //console.log(item,cantidad);
+        if(cantidad <= 4){
+        let newCustomItems = customItems.filter(el => el.item !== item );
+        newCustomItems = [...newCustomItems,{item:item,quantity:cantidad+1}];
+        setCustomItems(newCustomItems);
+        }
+    }
+
+    //resta la cantidad al item
+    const restarCustomQuantity = (item, cantidad) =>{
+        if(cantidad>1){
+            let newCustomItems = customItems.filter(el => el.item !== item );
+            newCustomItems = [...newCustomItems,{item:item,quantity:cantidad-1}];
+            setCustomItems(newCustomItems);
+        }
+    }
 
   return (
-    <CartContext.Provider value={{customItems,addCustomItems}}>
+    <CartContext.Provider value={{customItems,addCustomItems,removeCustomItem,clearCustomItem,addCustomQuantity,restarCustomQuantity}}>
         {children}
     </CartContext.Provider>
   )

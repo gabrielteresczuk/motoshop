@@ -69,6 +69,7 @@
 .ItemDetail_img{
   width: 100%;
   height: auto;
+  pointer-events: none;
 }
 
 .ItemDetail_fade {
