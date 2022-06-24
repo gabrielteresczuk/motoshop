@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import ItemList from '../ItemList';
 import Loader from '../Loader';
 import './ItemListContainer.css'
-import {dataDB} from '../../assets/dataBase'
+
+import {collection, getDocs, getFirestore, query, where} from 'firebase/firestore'
+import { Link, useParams } from 'react-router-dom';
 
 
 const ItemListContainer = () => {
@@ -11,31 +13,45 @@ const ItemListContainer = () => {
     const [data, setData] = useState('');
     const [originalData, setOriginalData] = useState('');
     const [order, setOrder] = useState('relevante');
-    const [filter, setFilter] = useState({min:'',max:'',modelo:[]});
+    const [filter, setFilter] = useState({min:'',max:''});
     const [minMax, setMinMax] = useState({min:'',max:''});
 
+    let {categoria} = useParams();
+
+    if(!categoria){
+        categoria = 'todos';
+    }
 
 
     useEffect(() => {
 
-        const fetchData = async () => {
+        const db = getFirestore();
 
-            let myPromise = new Promise(function(myResolve, myReject) {
-                setTimeout(function() { 
-                    myResolve(dataDB); 
-                }, 500);
-            });
+        let q='';
 
-            setData(await myPromise);
-            setOriginalData(await myPromise);
-            setLoader(false);
+        if(categoria === 'todos'){
+            q = collection(db,'items');
+        }else{
+            q = query(
+                collection(db,'items'),
+                where("modelo","==",categoria.toUpperCase()));
         }
 
-        fetchData();
+        getDocs(q).then((snapshot)=>{
+            if(snapshot.size === 0){
+                console.log('no hay resultados');
+            }else{
+            let resultado = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } ));
 
-    }, []);
+            setLoader(false);
+            setData(resultado);
+            setOriginalData(resultado);
+            }
+        });
 
+    }, [categoria]);
 
+    //Manejamos el Orden de los productos
     const handleOrder = (event) => {
         let numbers = [...data];
 
@@ -52,9 +68,7 @@ const ItemListContainer = () => {
         }
 
         if(event.target.value === 'relevante'){
-            numbers.sort(function(a, b) {
-                return a.id - b.id;
-                });
+           numbers = [...originalData];
         }
 
 
@@ -62,50 +76,25 @@ const ItemListContainer = () => {
         setOrder(event.target.value);
     }
 
-    const addFilter = (filtro) => {
-        setFilter({
-                ...filter,
-                modelo:[...filter.modelo,filtro]
-                })
-    }
-
-    const removeFilter = (filtro) => {
-        let nuevoFiltro = filter.modelo.filter(el => el !== filtro);
-        setFilter({...filter,modelo:nuevoFiltro});
-    }
-
     const clearFilter = () =>{
-        setFilter({min:'',max:'',modelo:[]});
+        setFilter({min:'',max:''});
     }
 
     useEffect(() => {
      
-      let dataAFiltrar = [...originalData];
-      let dataFiltrada = [];
-
-      if(filter.modelo.length > 0){
-        for (const iterator of filter.modelo) {
-            dataFiltrada = [...dataFiltrada,...dataAFiltrar.filter(el => el.modelo === iterator)];
-        }
-      }else{
-        dataFiltrada = dataAFiltrar;
-      }
+      let dataFiltrada = [...originalData];
 
       if(filter.min || filter.max){
         console.log('entro');
         dataFiltrada = dataFiltrada.filter(el => el.precio >= parseInt(filter.min) && el.precio <= parseInt(filter.max) );
       }
-
-
         setData(dataFiltrada);
-
     
     }, [filter,originalData])
 
 
     const handleMinMax = (e) =>{
         setMinMax({...minMax, [e.target.name]:e.target.value});
-        //let nuevaDataMinMax = data.filter(el => el.precio >= parseInt(nuevoMin) && el.precio <= parseInt(nuemoMax) );
     }
 
     const sendMinMax = () =>{
@@ -129,25 +118,26 @@ const ItemListContainer = () => {
             
             <div className='ItemListContainer_contenido'>
                 <div className='ItemListContainer_filter'>
-                    {filter.modelo.length || filter.max ? <><span>FILTROS</span><hr/></> :''}
+                    {categoria || filter.max ? <><span>FILTROS</span><hr/></> :''}
                     
                     <ul className='ItemListContainer_filterRemove'>
-                        { filter.modelo.includes('ENDURO') && <li onClick={() => removeFilter('ENDURO')}>Enduro <span>x</span></li>}
-                        { filter.modelo.includes('NAKED') &&<li onClick={() => removeFilter('NAKED')}>Naked <span>x</span></li>}
-                        { filter.modelo.includes('MX') &&<li onClick={() => removeFilter('MX')}>MX <span>x</span></li>}
-                        { filter.modelo.includes('SUPERSPORT') &&<li onClick={() => removeFilter('SUPERSPORT')}>SuperSport  <span>x</span></li>}
-                        { filter.modelo.includes('ADVENTURE') &&<li onClick={() => removeFilter('ADVENTURE')}>Adventure <span>x</span></li>}
+                        { categoria === 'todos'? <li>Todos </li> : ''}
+                        { categoria === 'Enduro'? <Link to={'/Lista/todos'}><li>Enduro <span>x</span></li></Link> : ''}
+                        { categoria === 'Naked'? <Link to={'/Lista/todos'}><li>Naked <span>x</span></li></Link> : ''}
+                        { categoria === 'MX'? <Link to={'/Lista/todos'}><li>MX <span>x</span></li></Link> : ''}
+                        { categoria === 'SuperSport'? <Link to={'/Lista/todos'}><li>SuperSport <span>x</span></li></Link> : ''}
+                        { categoria === 'Adventure'? <Link to={'/Lista/todos'}><li>Adventure <span>x</span></li></Link> : ''}
                         { filter.min || filter.max ? <li onClick={removeMinMax}>${filter.min} - ${filter.max}<span>x</span></li> : ''}
-                        { filter.modelo.length ? <button onClick={() => clearFilter()} className='ItemListContainer_filterClear'>Limpar</button> :'' } 
+                        { filter.max ? <button onClick={() => clearFilter()} className='ItemListContainer_filterClear'>Limpar</button> :'' } 
                     </ul>
                     <span>CATEGORIAS</span>
                     <hr/>
                     <ul className='ItemListContainer_filterAdd'>
-                        { filter.modelo.includes('ENDURO') || <li onClick={() => addFilter('ENDURO')}>Enduro <span>&#62;</span></li>}
-                        { filter.modelo.includes('NAKED') ||<li onClick={() => addFilter('NAKED')}>Naked <span>&#62;</span></li>}
-                        { filter.modelo.includes('MX') ||<li onClick={() => addFilter('MX')}>MX <span>&#62;</span></li>}
-                        { filter.modelo.includes('SUPERSPORT') ||<li onClick={() => addFilter('SUPERSPORT')}>SuperSport  <span>&#62;</span></li>}
-                        { filter.modelo.includes('ADVENTURE') ||<li onClick={() => addFilter('ADVENTURE')}>Adventure <span>&#62;</span></li>}
+                        { categoria !== 'Enduro'? <Link to={'/Lista/Enduro'}><li >Enduro <span>&#62;</span></li></Link> : ''}
+                        { categoria !== 'Naked'? <Link to={'/Lista/Naked'}><li >Naked <span>&#62;</span></li> </Link> : ''}
+                        { categoria !== 'MX'? <Link to={'/Lista/MX'}><li >MX <span>&#62;</span></li> </Link> : ''}
+                        { categoria !== 'SuperSport'? <Link to={'/Lista/SuperSport'}><li >SuperSport <span>&#62;</span></li> </Link> : ''}
+                        { categoria !== 'Adventure'? <Link to={'/Lista/Adventure'}><li >Adventure <span>&#62;</span></li> </Link> : ''}
                     </ul>
                     <span>PRECIO</span>
                     <hr/>

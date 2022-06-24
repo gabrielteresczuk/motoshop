@@ -13,11 +13,12 @@ function Footer() {
         <div className='Footer-Col'>
             <span>MODELOS</span>
             <ul>
-                <li className='Footer-link'>Enduro</li>
-                <li className='Footer-link'>Naked</li>
-                <li className='Footer-link'>MX</li>
-                <li className='Footer-link'>SuperSport</li>
-                <li className='Footer-link'>Travel</li>
+                <li className='Footer-link'><Link to={'/Lista/todos'}>Todos</Link></li>
+                <li className='Footer-link'><Link to={'/Lista/Enduro'}>Enduro</Link></li>
+                <li className='Footer-link'><Link to={'/Lista/Naked'}>Naked</Link></li>
+                <li className='Footer-link'><Link to={'/Lista/MX'}>MX</Link></li>
+                <li className='Footer-link'><Link to={'/Lista/SuperSport'}>SuperSport</Link></li>
+                <li className='Footer-link'><Link to={'/Lista/Adventure'}>Adventure</Link></li>
             </ul>
         </div>
         <div className='Footer-Col'>

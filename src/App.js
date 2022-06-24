@@ -12,6 +12,7 @@ import ItemListContainer from './components/ItemListContainer';
 import NavBar from './components/NavBar';
 import NoMatch from './components/NoMatch';
 
+
 function App() {
 
   return (
@@ -23,7 +24,8 @@ function App() {
             <Route exact path='/' element={<Home/>}  />
             <Route exact path='/motoshop' element={<Home/>}  />
             <Route exact path='/Item/:ItemId' element={<ItemDetailContainer/>}/>
-            <Route exact path='/Lista' element={<ItemListContainer/>}/>
+            <Route exact path='/Lista/:categoria' element={<ItemListContainer/>}/>
+            <Route path='/Lista' element={<ItemListContainer/>}/>
             <Route exact path='/Contacto' element={<Contacto/>}/>
             <Route exact path='/Cart' element={<Cart/>}/>
             <Route path='*' element={<NoMatch/>}/>

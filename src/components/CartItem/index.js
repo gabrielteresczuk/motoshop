@@ -25,12 +25,12 @@ function CartItem({item}) {
     </td>
     <td>
         <div className='CartItemCountControls'>
-            <button onClick={()=>restarCustomQuantity(item.id,item.cantidad)}>-</button>
-            <div>{item.cantidad}</div>
-            <button onClick={()=>addCustomQuantity(item.id,item.cantidad)}>+</button>
+            <button onClick={()=>restarCustomQuantity(item,item.quantity)}>-</button>
+            <div>{item.quantity}</div>
+            <button onClick={()=>addCustomQuantity(item,item.quantity)}>+</button>
         </div>
     </td>
-    <td>${item.cantidad*item.precio}</td>
+    <td>${item.quantity*item.precio}</td>
     <th>
       <button className="CartDeleteButton" onClick={() => removeCustomItem(item.id)}>
       <FontAwesomeIcon icon={faTrashCan}/>

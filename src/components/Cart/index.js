@@ -1,27 +1,25 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Cart.css'
 import { CartContext } from '../../context/CartContext'
 import CartItem from '../CartItem'
-import {dataDB} from '../../assets/dataBase'
 import { Link } from 'react-router-dom'
 
 
 function Cart() {
 
   const {customItems,clearCustomItem} = useContext(CartContext);
+  const [total, setTotal] = useState(0);
 
-  console.log(customItems);
+  useEffect(() => {
 
-  let nuevo = '';
-  let nuevosItems = [];
-  let total = 0;
+    let totalEffect = 0;
+    customItems.forEach(el => {
+      totalEffect = totalEffect + (parseInt(el.precio) * el.quantity);
+    });
+    setTotal(totalEffect);
 
-  //Por cada item del CONTEXT, buscamos los datos de la base
-  customItems.forEach(el => {
-    nuevo = {...dataDB.find(ele => ele.id === el.item),cantidad:el.quantity};
-    nuevosItems = [...nuevosItems, nuevo];
-    total = total + (parseInt(nuevo.precio) * el.quantity);
-  });
+  }, [total,customItems]);
+
 
   if(customItems.length >0){
 
@@ -46,7 +44,7 @@ function Cart() {
 
 
             {
-              nuevosItems.map(el => 
+              customItems.map(el => 
                   <CartItem key={el.id} item={el}/>
               )
             }
@@ -77,7 +75,7 @@ function Cart() {
       <div>No se encuentran Productos en el Carrito</div>
       
       
-      <div className='CartComprar'><Link to={'/Lista'}><button className='ItemCount-Agregar'>Realizar Compras</button></Link></div>
+      <div className='CartComprar'><Link to={'/Lista/todos'}><button className='ItemCount-Agregar'>Realizar Compras</button></Link></div>
       </div>
     );
   }

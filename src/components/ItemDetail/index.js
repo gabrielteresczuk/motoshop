@@ -31,7 +31,8 @@ function ItemDetail({itemData}) {
 
     const onAdd = (valor) =>{
         setCount(valor);
-        addCustomItems({item:itemData.id,quantity:valor});
+        //addCustomItems({item:itemData.id,quantity:valor});
+        addCustomItems({...itemData,quantity:valor});
     }
 
 

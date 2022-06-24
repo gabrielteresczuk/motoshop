@@ -55,11 +55,17 @@
     justify-content: space-between;
     padding: 5px;
     border-radius: 5px;
+    
 }
 
 .ItemListContainer_filter ul li:hover{
     background-color: #EEEEEE;
     cursor: pointer;
+}
+
+.ItemListContainer_filterAdd a{
+    text-decoration: none;
+    color: #000000;
 }
 
 
@@ -74,6 +80,12 @@
     position: relative;
     right: 0px;
 }
+
+.ItemListContainer_filterRemove a{
+    text-decoration: none;
+    color: #000000;
+}
+
 
 .ItemListContainer_filterRemove li span{
     padding-left: 10px;

@@ -8,24 +8,25 @@ function CustomCartContext({defaultValue = [], children}) {
     const [customItems, setCustomItems] = useState(defaultValue);
 
     const isInCart = (id) => {
-        return customItems.some(obj => obj.item === id);
+        return customItems.some(obj => obj.id === id);
     }
 
     // Se agrega el item al ARRAY, si ya existe, SUMA la QUANTITY
     const addCustomItems = (obj) =>{
 
-        if (!isInCart(obj.item)){
+        if (!isInCart(obj.id)){
             setCustomItems([...customItems,obj]);
         } else{
             console.log("el item solo se sumara");
-            let nuevoCustomItems = customItems.map(el => el.item === obj.item ? {...el, quantity: el.quantity+obj.quantity}: el);
+            let nuevoCustomItems = customItems.map(el => el.id === obj.id ? {...el, quantity: el.quantity+obj.quantity}: el);
             setCustomItems(nuevoCustomItems);
         }
+       
     }
 
     // elimina un elemnto del array
     const removeCustomItem = (id) =>{
-        let newCustomItems = customItems.filter(el => el.item !== id );
+        let newCustomItems = customItems.filter(el => el.id !== id );
         setCustomItems(newCustomItems);
     }
 
@@ -38,8 +39,8 @@ function CustomCartContext({defaultValue = [], children}) {
     const addCustomQuantity = (item, cantidad) => {
         //console.log(item,cantidad);
         if(cantidad <= 4){
-        let newCustomItems = customItems.filter(el => el.item !== item );
-        newCustomItems = [...newCustomItems,{item:item,quantity:cantidad+1}];
+        let newCustomItems = customItems.filter(el => el.id !== item.id );
+        newCustomItems = [...newCustomItems,{...item,quantity:cantidad+1}];
         setCustomItems(newCustomItems);
         }
     }
@@ -47,8 +48,8 @@ function CustomCartContext({defaultValue = [], children}) {
     //resta la cantidad al item
     const restarCustomQuantity = (item, cantidad) =>{
         if(cantidad>1){
-            let newCustomItems = customItems.filter(el => el.item !== item );
-            newCustomItems = [...newCustomItems,{item:item,quantity:cantidad-1}];
+            let newCustomItems = customItems.filter(el => el.id !== item.id );
+            newCustomItems = [...newCustomItems,{...item,quantity:cantidad-1}];
             setCustomItems(newCustomItems);
         }
     }

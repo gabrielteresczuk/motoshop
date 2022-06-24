@@ -2,7 +2,9 @@ import React from 'react'
 import './Contacto.css'
 import image from '../../images/contacto.jpg'
 
+
 function Contacto() {
+
   return (
     <div className='Contacto_container' style={{ backgroundImage:`url(${image})` }}>
         <div className='Contacto_formContainer'>
