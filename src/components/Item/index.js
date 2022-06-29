@@ -14,12 +14,15 @@ function Item({item}) {
                     <h2 className="Item-title">  
                         {item.producto}
                     </h2>  
+                    
                     <p className="Item-intro">  
                         {item.subproducto}
                     </p>  
+                    <p className="Item-stock">{item.stock? 'Unidades: '+item.stock : 'Agotado'}</p>
                     <p className="Item-price">  
                         ${item.precio}
                     </p>  
+                    
             </div>  
  
             </Link>

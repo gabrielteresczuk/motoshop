@@ -24,6 +24,7 @@
   padding: 5px;
 }
 .Item-img img {
+  max-width: 400px;
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -36,6 +37,14 @@
   line-height: 1.33;
   font-weight: 700;
   margin: 5px;
+}
+.Item-intro{
+  margin: 5px;
+}
+.Item-stock{
+  margin: 5px;
+  color: #9E9E9E;
+  font-weight: 300;
 }
 .Item-price {
   font-weight: 500;

@@ -32,28 +32,6 @@ function ItemDetailContainer() {
 
 }, [ItemId]);
 
-  /*useEffect(() => {
-
-    const getItem = new Promise(function(myResolve,myReject){
-      setTimeout(() => {
-        myResolve(
-          //itemData[2]
-          dataDB.find((el) => el.id === parseInt(ItemId))
-          );
-      }, 500);
-    });
-  
-    getItem.then(
-      function(value){
-        setData(value);
-        setLoader(false);
-      }
-    );
-
-  }, [ItemId]);*/
-  
-
-
   return (
     <div className='ItemDetailContainer'>
     

@@ -11,6 +11,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import ItemListContainer from './components/ItemListContainer';
 import NavBar from './components/NavBar';
 import NoMatch from './components/NoMatch';
+import CartCheckOut from './components/CartCheckOut';
 
 
 function App() {
@@ -28,6 +29,8 @@ function App() {
             <Route path='/Lista' element={<ItemListContainer/>}/>
             <Route exact path='/Contacto' element={<Contacto/>}/>
             <Route exact path='/Cart' element={<Cart/>}/>
+            <Route exact path='/Cart/ChekOut' element={<CartCheckOut/>}/>
+            
             <Route path='*' element={<NoMatch/>}/>
           </Routes>
         </CustomCartContext>

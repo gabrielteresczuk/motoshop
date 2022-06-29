@@ -1,0 +1,123 @@
+.CartCheckOut{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
+}
+
+.CartCheckOutTitulo
+{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 15px;
+    
+}
+
+.CartCheckOutCont{
+    padding: 15px;
+    border-radius: 5px;
+    max-width: 1200px;
+    width: 100%;
+    
+}
+
+.CartCheckOutGrid{
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(320px,500px));
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.CartCheckOutTableContainer{
+    padding: 15px;
+    /*background-color: coral;*/
+    border-radius: 5px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    
+}
+
+.CheckOutTotal{
+    display: flex;
+    justify-content: space-between;
+}
+
+.FormCont{
+    display: flex;
+    flex-direction: column;
+    row-gap: 5px;
+    background-color: #EEEEEE;
+    /*border: 2px solid hsl(21, 100%, 70%);*/
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+}
+
+.FormCont h2{
+    padding-bottom: 10px;
+    color: coral;
+}
+
+.FormCont p{
+    color: #424242;
+    padding-bottom: 5px;
+}
+
+.FormInput{
+    height: 2rem;
+    font-size: 17px;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+    padding: 5px;
+    border:1px solid #cccccc;
+    outline: none;
+    transition: all ease 0.2s;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+}
+.FormInput:focus{
+    background-color: #FFFFFF;
+    border: 1px solid #EEEEEE;
+}
+
+.FormInputInValid{
+    height: 2rem;
+    font-size: 17px;
+    background-color: #EF9A9A;
+    border-radius: 5px;
+    padding: 5px;
+    border:1px solid #E57373;
+    outline: none;
+    transition: all ease 0.2s;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+}
+
+.buttonCont{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
+.CartCheckOutFinish{
+    border: 2px solid coral;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.CartCheckOutFinish strong{
+    border: 1px solid #cccccc;
+    padding: 5px;
+    font-size: 20px;
+}

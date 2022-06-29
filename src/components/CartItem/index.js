@@ -32,7 +32,7 @@ function CartItem({item}) {
     </td>
     <td>${item.quantity*item.precio}</td>
     <th>
-      <button className="CartDeleteButton" onClick={() => removeCustomItem(item.id)}>
+      <button className="CartDeleteButton" onClick={() => removeCustomItem(item)}>
       <FontAwesomeIcon icon={faTrashCan}/>
       </button>
     </th>

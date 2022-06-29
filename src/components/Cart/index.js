@@ -62,7 +62,7 @@ function Cart() {
 
         <div className='CartTerminar'>
             <button className='CartLimparButton' onClick={clearCustomItem}>Limpiar Carrito</button>
-            <button className='ItemCount-Agregar'>Terminar Compra</button>
+            <Link to={'/Cart/ChekOut'}><button className='ItemCount-Agregar'>Terminar Compra</button></Link>
       </div>
       </div>
 

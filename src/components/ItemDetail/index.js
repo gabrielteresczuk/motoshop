@@ -83,16 +83,19 @@ function ItemDetail({itemData}) {
                 </div>
 
             </div>    
+            
             <div className="ItemDetail_precio">${itemData.precio}</div>
+            <div className="ItemDetail_model">{ itemData.stock ? 'Unidades disponibles: '+(itemData.stock-count) : 'Agotado'}</div>
             <div className="ItemDetail_cantidad">
             { count ? 
-                (<>
-                <Link to={'/Lista'}><button className='ItemDetail_addToCard'>Seguir Comprando</button></Link>
-                <Link to={'/Cart'}><button className='ItemDetail_toCard'> Ir al Carrito </button></Link>
-                </>
-                )
+                 (<>
+                    <Link to={'/Lista'}><button className='ItemDetail_addToCard'>Seguir Comprando</button></Link>
+                    <Link to={'/Cart'}><button className='ItemDetail_toCard'> Ir al Carrito </button></Link>
+                    </>
+                 ) 
                 : 
-                <ItemCount stock={5} initial={1} onAdd={onAdd}/>
+                itemData.stock ? <ItemCount stock={itemData.stock} initial={1} onAdd={onAdd}/> : ''
+                
             }
             </div>
             
