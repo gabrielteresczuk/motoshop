@@ -9,49 +9,49 @@ function Footer() {
   return (
     <div className='Footer'>
 
-       <div className='Footer-Row1'>
-        <div className='Footer-Col'>
+       <div className='footer__fila'>
+        <div className='footer__col'>
             <span>MODELOS</span>
             <ul>
-                <li className='Footer-link'><Link to={'/Lista/todos'}>Todos</Link></li>
-                <li className='Footer-link'><Link to={'/Lista/Enduro'}>Enduro</Link></li>
-                <li className='Footer-link'><Link to={'/Lista/Naked'}>Naked</Link></li>
-                <li className='Footer-link'><Link to={'/Lista/MX'}>MX</Link></li>
-                <li className='Footer-link'><Link to={'/Lista/SuperSport'}>SuperSport</Link></li>
-                <li className='Footer-link'><Link to={'/Lista/Adventure'}>Adventure</Link></li>
+                <li className='footer__link'><Link to={'/Catalogo/todos'}>Todos</Link></li>
+                <li className='footer__link'><Link to={'/Catalogo/Enduro'}>Enduro</Link></li>
+                <li className='footer__link'><Link to={'/Catalogo/Naked'}>Naked</Link></li>
+                <li className='footer__link'><Link to={'/Catalogo/MX'}>MX</Link></li>
+                <li className='footer__link'><Link to={'/Catalogo/SuperSport'}>SuperSport</Link></li>
+                <li className='footer__link'><Link to={'/Catalogo/Adventure'}>Adventure</Link></li>
             </ul>
         </div>
-        <div className='Footer-Col'>
+        <div className='footer__col'>
             <span>SECCIONES</span>
             <ul>
-            <li className='Footer-link'><Link to={'/'}>HOME</Link></li>
-                <li className='Footer-link'><Link to={'/Lista'}>PRODUCTOS</Link></li>
-                <li className='Footer-link'><Link to={'/Contacto'}>CONTACTO</Link></li>
+            <li className='footer__link'><Link to={'/'}>HOME</Link></li>
+                <li className='footer__link'><Link to={'/Catalogo'}>PRODUCTOS</Link></li>
+                <li className='footer__link'><Link to={'/Contacto'}>CONTACTO</Link></li>
             </ul>
         </div>
-        <div className='Footer-Col'>
+        <div className='footer__col'>
             <span>SUSCRIBITE</span>
             <ul>
                 <li>Email</li>
-                <li><input type="email" className='Footer-email'/></li>
-                <li><button className='Footer-button'>Suscribirme</button></li>
+                <li><input type="email" className='footer__email'/></li>
+                <li><button className='footer__btn'>Suscribirme</button></li>
                 <li>Recibi todas las ofertas!</li>
             </ul>
         </div>
         </div> 
-        <div className='Footer-Row2'>
-            <div className='Footer-logo'> 
-                <div><FontAwesomeIcon icon={faMotorcycle} className="Footer-icon1" /></div>
+        <div className='footer__fila-2'>
+            <div className='footer__logo'> 
+                <div><FontAwesomeIcon icon={faMotorcycle} className="footer__icono-1" /></div>
                 <div>
                     <div>MOTOSHOP</div>
                     <div>Teresczuk Gabriel</div>
                 </div>
             </div>
             <div>
-            <FontAwesomeIcon icon={faTwitter} className="Footer-icon2" />
-            <FontAwesomeIcon icon={faFacebookF}  className="Footer-icon2"/>
-            <FontAwesomeIcon icon={faLinkedin}  className="Footer-icon2"/>
-            <FontAwesomeIcon icon={faGithub} className="Footer-icon2" />
+            <FontAwesomeIcon icon={faTwitter} className="footer__icono-2" />
+            <FontAwesomeIcon icon={faFacebookF}  className="footer__icono-2"/>
+            <FontAwesomeIcon icon={faLinkedin}  className="footer__icono-2"/>
+            <FontAwesomeIcon icon={faGithub} className="footer__icono-2" />
             </div>
         </div>
 

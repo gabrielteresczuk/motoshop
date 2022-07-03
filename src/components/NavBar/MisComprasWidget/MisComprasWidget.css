@@ -1,0 +1,26 @@
+.mis-compras-widget{
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: transparent;
+    border: transparent;
+    transition: all ease 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.mis-compras-widget__cont a{
+    text-decoration: none;
+    color: #212121;
+}
+
+.mis-compras-widget:hover{
+    color: #FFFFFF;
+    cursor: pointer;
+}
+.mis-compras-widget__texto{
+    font-size: 10px;
+    text-decoration: none;
+    font-weight: 700;
+}

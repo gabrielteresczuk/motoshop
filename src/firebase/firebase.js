@@ -3,12 +3,12 @@ import { initializeApp } from "firebase/app";
 
 //cargamos la configuracion
 const firebaseConfig = {
-  apiKey: "AIzaSyCfhRGo3DttK3bQjOiIRsCMoHYA_VJg9Nc",
-  authDomain: "coderhouse-motoshop.firebaseapp.com",
-  projectId: "coderhouse-motoshop",
-  storageBucket: "coderhouse-motoshop.appspot.com",
-  messagingSenderId: "52131549056",
-  appId: "1:52131549056:web:9d43a1853769ec25203b65"
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FB_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGIN_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID
 };
 
 // Inicializamos Firebase

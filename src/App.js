@@ -1,17 +1,18 @@
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import CustomCartContext from './context/CartContext';
-
-import Cart from './components/Cart';
+import CarritoContextContenedor from './context/CarritoContext';
+import Carrito from './components/Carrito';
 import Contacto from './components/Contacto';
 import Footer from './components/Footer';
-import Home from './components/Home';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import ItemListContainer from './components/ItemListContainer';
+import Inicio from './components/Inicio';
+import ArticuloDetalleContenedor from './components/ArticuloDetalleContenedor';
+import ArticuloListaContenedor from './components/ArticuloListaContenedor';
 import NavBar from './components/NavBar';
-import NoMatch from './components/NoMatch';
-import CartCheckOut from './components/CartCheckOut';
+import NoEncontrado from './components/NoEncontrado';
+import CarritoValidar from './components/CarritoValidar';
+import Favoritos from './components/Favoritos';
+import MisCompras from './components/MisCompras';
 
 
 function App() {
@@ -19,21 +20,23 @@ function App() {
   return (
     <div className='App'>
         <BrowserRouter>
-        <CustomCartContext>
+        <CarritoContextContenedor>
           <NavBar/>
           <Routes>
-            <Route exact path='/' element={<Home/>}  />
-            <Route exact path='/motoshop' element={<Home/>}  />
-            <Route exact path='/Item/:ItemId' element={<ItemDetailContainer/>}/>
-            <Route exact path='/Lista/:categoria' element={<ItemListContainer/>}/>
-            <Route path='/Lista' element={<ItemListContainer/>}/>
+            <Route exact path='/' element={<Inicio/>}  />
+            <Route exact path='/motoshop' element={<Inicio/>}  />
+            <Route exact path='/Articulo/:ArticuloId' element={<ArticuloDetalleContenedor/>}/>
+            <Route exact path='/Catalogo/:categoria' element={<ArticuloListaContenedor/>}/>
+            <Route path='/Catalogo' element={<ArticuloListaContenedor/>}/>
             <Route exact path='/Contacto' element={<Contacto/>}/>
-            <Route exact path='/Cart' element={<Cart/>}/>
-            <Route exact path='/Cart/ChekOut' element={<CartCheckOut/>}/>
+            <Route exact path='/Favoritos' element={<Favoritos/>}/>
+            <Route exact path='/Carrito' element={<Carrito/>}/>
+            <Route exact path='/Carrito/Validar' element={<CarritoValidar/>}/>
+            <Route exact path='/MisCompras' element={<MisCompras/>}/>
             
-            <Route path='*' element={<NoMatch/>}/>
+            <Route path='*' element={<NoEncontrado/>}/>
           </Routes>
-        </CustomCartContext>
+        </CarritoContextContenedor>
           <Footer/>
         </BrowserRouter>
     </div>

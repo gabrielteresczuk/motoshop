@@ -1,0 +1,49 @@
+.inicio__hero {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.inicio__hero__texto {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 2rem;
+  background-color: rgb(255 255 255 / 20%);
+  padding: 2rem;
+}
+
+.inicio__hero__p {
+  max-width: 500px;
+  text-align: center;
+}
+
+a .inicio__hero__btn {
+  padding: 5px 30px 5px 30px;
+  height: 46px;
+  color: #fff;
+  background-color: rgba(255, 75, 51, 1);
+  font-size: 17px;
+  transition: all 0.3s;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 10px 0 rgb(0 0 0 / 10%);
+  cursor: pointer;
+}
+
+a .inicio__hero__btn:hover {
+  cursor: pointer;
+  background-color: rgba(255, 75, 51, 0.8);
+}

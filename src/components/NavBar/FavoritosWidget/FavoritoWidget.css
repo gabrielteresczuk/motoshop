@@ -1,0 +1,15 @@
+.favorito-widget{
+    margin-right: 10px;
+    background-color: transparent;
+    border: transparent;
+    transition: all ease 0.3s;
+}
+.favorito-widget__icono{
+    font-size: 30px;
+}
+.favorito-widget:hover{
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+

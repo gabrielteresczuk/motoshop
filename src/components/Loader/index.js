@@ -1,10 +1,12 @@
-import React from 'react'
-import './Loader.css'
+import React from "react";
+import "./Loader.css";
 
 function Loader() {
   return (
-    <div className='Loader_container'><div className="Loader_dualRing"></div></div>
-  )
+    <div className="loader__contenedor">
+      <div className="loader__dual-ring"></div>
+    </div>
+  );
 }
 
-export default Loader
+export default Loader;

@@ -1,0 +1,29 @@
+.compra{
+    width: 100%;
+    max-width: 1200px;
+}
+
+.compra hr{
+    border: none;
+    height: 1px;
+    color: #E0E0E0;
+    background-color: #E0E0E0;
+    border: 1px solid ;
+    width: 100%;
+    margin: 10px;
+}
+
+.compra h3{
+    font-weight: 400;
+}
+
+.compra h4{
+    font-weight: 300;
+}
+
+.compra__sub-titulo{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}

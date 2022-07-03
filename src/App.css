@@ -6,22 +6,6 @@
   font-family: 'Rubik', sans-serif;
 }
 
-:root{
-  --primary-light1:#FFA264;
-  --primary-light2:#FF8939;
-  --primary:#ff6600;
-  /*#fd7e14*/
-  --primary-dark1:#C65000;
-  --primary-dark2:#9B3F00;
-
-  --white:#ffffff;
-  --black-500:#9E9E9E;
-  --black-800:#424242;
-  --black-900:#212121;
-  --black:#000000;
-
-}
-
 .App{
   min-height: 100vh; 
   display: grid;
