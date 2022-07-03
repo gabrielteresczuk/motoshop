@@ -8,7 +8,7 @@ Puedes ver el proyecto en vivo.
 
 ### Funcionamiento
 
-![enter image description here](https://github.com/gabrielteresczuk/motoshop/blob/master/public/motoshop.gif?raw=true)
+![funcionamiento](https://github.com/gabrielteresczuk/motoshop/blob/master/public/motoshop.gif?raw=true)
 
 El proyecto consta de un **Ecommerce**, de venta de Motocicletas, este cuenta con los siguientes módulos:
 

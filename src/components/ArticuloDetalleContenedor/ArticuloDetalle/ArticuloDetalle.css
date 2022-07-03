@@ -185,6 +185,12 @@
 
 /*button*/
 
+.articulo-detalle__cantidad{
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 5px;
+}
+
 .articulo-detalle__btn-agregar {
   padding: 5px 30px 5px 30px;
   height: 2rem;
@@ -223,4 +229,13 @@
 .articulo-detalle__btn-carrito:hover {
   cursor: pointer;
   text-decoration: underline;
+}
+
+
+@media only screen and (max-width: 400px) {
+  .articulo-detalle__grid-cont {
+    display: grid;
+    grid-template-columns: auto;
+    align-items: start;
+  }
 }

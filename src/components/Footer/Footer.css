@@ -105,3 +105,11 @@
 .footer__icono-2:hover {
   transform: rotate(-15deg);
 }
+@media only screen and (max-width: 600px) {
+  .footer__fila-2 {
+
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 5px;
+  }
+}

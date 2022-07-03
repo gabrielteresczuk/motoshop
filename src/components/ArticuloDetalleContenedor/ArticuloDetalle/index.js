@@ -88,7 +88,7 @@ function ArticuloDetalle({datosArticulo}) {
             
             <div className="articulo-detalle__precio">${datosArticulo.precio}</div>
             <div className="articulo-detalle__modelo">{ datosArticulo.stock ? 'Unidades disponibles: '+(datosArticulo.stock-cantidadAgregada) : 'Agotado'}</div>
-            <div className="ItemDetail_cantidad">
+            <div className="articulo-detalle__cantidad">
             { cantidadAgregada ? 
                  (<>
                     <Link to={'/Catalogo'}><button className='articulo-detalle__btn-agregar'>Seguir Comprando</button></Link>

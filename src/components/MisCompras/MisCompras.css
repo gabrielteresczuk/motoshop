@@ -1,5 +1,5 @@
 .compra{
-    width: 100%;
+    width: 100vw;
     max-width: 1200px;
 }
 
@@ -23,7 +23,22 @@
 
 .compra__sub-titulo{
     display: flex;
+    flex-wrap: wrap;
+    row-gap: 5px;
     width: 100%;
     justify-content: space-between;
     align-items: center;
 }
+
+@media only screen and (max-width: 600px) {
+    .compra__sub-titulo{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .carrito-validar__table-cont{
+        padding: 0px;
+    }
+  }

@@ -90,3 +90,19 @@ a.active {
   color: #fafafa;
   text-shadow: 1px 1px 5px rgb(0 0 0 / 80%);
 }
+
+@media only screen and (max-width: 600px) {
+  .nav-bar__contenedor {
+    flex-direction: column;
+    row-gap: 10px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-bar__navegacion {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    font-size: 15px;
+  }
+}

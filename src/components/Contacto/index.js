@@ -14,7 +14,7 @@ function Contacto() {
                 <label htmlFor='email' className='contacto__sub-texto' name="email" >Email:</label>
                 <input type="email" id="email" className='contacto__input' placeholder='correo electronico'/>
                 <label htmlFor='textarea' className='contacto__sub-texto'>Mensaje:</label>
-                <textarea id="textarea" className='contacto__input' name="textarea" rows="10" cols="50" placeholder='Envianos tu consulta'/>
+                <textarea id="textarea" className='contacto__input' name="textarea" rows="10" cols="1" placeholder='Envianos tu consulta'/>
                 <input type="submit" className='contacto__submit' value="enviar"/>
                 <p className='contacto__sub-texto'>Todas las consultas son importantes</p>
             </form>

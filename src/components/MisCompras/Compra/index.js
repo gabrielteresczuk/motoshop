@@ -10,6 +10,7 @@ function Compra({compra}) {
             <h3>Pedido - {compra.id}</h3>
             <h4>{compra.fecha} - {compra.hora}</h4>
        </div>
+       <div className="carrito__table-cont">
            <table className="carrito__table">
                
                <thead>
@@ -53,7 +54,8 @@ function Compra({compra}) {
                    </tr>
                </tfoot>
                
-               </table>    
+               </table> 
+               </div>   
                </div>
     <hr/>
     </div>

@@ -15,7 +15,8 @@
 
 /*Progresive step bar*/
 .progress-bar__cont {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
 }
 .progress-bar {
   counter-reset: step;
@@ -70,7 +71,10 @@
 .carrito__table-cont {
   padding: 15px;
   border-radius: 5px;
-  width: 1200px;
+  width: 100%;
+  max-width: 1200px;
+  overflow-x: auto;
+  
 }
 
 .carrito__table {
@@ -79,6 +83,7 @@
   width: 100%;
   text-align: center;
   border: 0px;
+
 }
 
 .carrito__table thead {
@@ -208,6 +213,8 @@
 
 .carrito__terminar {
   display: flex;
+  flex-wrap: wrap;
+  row-gap: 5px;
   justify-content: space-between;
   padding: 15px;
   width: 100%;
@@ -220,4 +227,22 @@
   padding: 15px;
   width: 100%;
   max-width: 1200px;
+}
+
+@media only screen and (max-width: 400px) {
+  .carrito__table-cont {
+    padding: 3px;
+    border-radius: 5px;
+    width: 100vw;
+    overflow-x: auto;
+  }
+
+  .carrito__table {
+    border-collapse: collapse;
+    background-color: #ffffff;
+    
+    text-align: center;
+    border: 0px;
+  
+  }
 }
